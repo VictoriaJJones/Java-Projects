@@ -1,0 +1,101 @@
+import java.util.Scanner;
+
+public class Pro4LandTract {
+	
+	
+	private double length;
+	private double width;
+	private double area;
+	
+	
+	public void setLength(double length)
+	{
+		this.length = length;	
+	}
+	public void setWidth(double width)
+	{
+		this.width = width;
+	}
+	public void setArea(double area)
+	{
+		this.area = area;
+	}
+	public double getArea()
+	{
+		area=length * width;
+		return area;
+	}
+	public String toString()
+	{
+		String str = "The area of the land 1 is: " + getArea();	 
+
+		return str;
+		
+	}
+	
+	/*@Override public boolean equals(Object other) {
+	    boolean result = false;
+	    if (other instanceof Point) {
+	        Point that = (Point) other;
+	        result = (this.getX() == that.getX() && this.getY() == that.getY());
+	    }
+	    return result;
+	}*/
+	
+	public static void main(String[] args) {
+		
+		Scanner keyboard = new Scanner(System.in);
+		//double tra
+		double wid;
+		double len;
+		Pro4LandTract land = new Pro4LandTract();
+		Pro4LandTract land2 = new Pro4LandTract();
+		System.out.println("Please enter the width of track 1");
+		wid = keyboard.nextDouble();
+		land.setWidth(wid);
+		
+		System.out.println("Please enter the length of track 1");
+		len = keyboard.nextDouble();
+		land.setLength(len);
+		//
+		System.out.println("Please enter the width of track 2");
+		wid = keyboard.nextDouble();
+		land2.setWidth(wid);
+		
+		System.out.println("Please enter the length of track 2");
+		len = keyboard.nextDouble();
+		land2.setLength(len);
+		
+		double a1 = 0;
+		double a2 = 0;
+		System.out.println(land.toString());
+		//System.out.println(land.getArea());
+		a1 = land.getArea();
+		System.out.println("The area of the land 2 is: "+land2.getArea());
+		a2 = land2.getArea();
+		
+		
+		if(a1 == a2){
+			System.out.println("the lands are equal");
+		}
+		else
+			System.out.println("the lands are not equal");
+		//System.out.println(a1);
+		//System.out.println(a2);
+		//System.out.println(a1.equals(a2));
+		//System.out.println(x.equals(y)); 
+		
+		
+		  
+		/*Integer x = 5;
+	      Integer y = 10;
+	      Integer z =5;
+	      Short a = 5;
+
+	      System.out.println(x.equals(y));  
+	      System.out.println(x.equals(z)); 
+	      System.out.println(x.equals(a));*/
+	}
+	
+
+}
