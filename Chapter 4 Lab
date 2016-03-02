@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class Pro18RouletteWheel {
+	// green is 0
+	//red 1, 3,5,7,9
+	//black 2,4,6,8,10
+	//black 11,13,15,17
+	//red 12,14,16,18
+	//red 19,21,23,25,27
+	//black 20,22,24,26,28
+	//black 29,31,33,35,
+	//red 30,32,34,36
+	private String color;
+	
+	
+	private int pocketNum;
+	public Pro18RouletteWheel(int PocketNum)
+	{
+		pocketNum = PocketNum;
+		
+	}
+	
+	public String getPocketColor()
+	{
+		
+		if(pocketNum == 1||pocketNum ==  3||pocketNum == 5||pocketNum ==7|| pocketNum == 9|| pocketNum ==12|| pocketNum ==14||pocketNum ==16||
+				pocketNum == 18|| pocketNum ==  19|| pocketNum == 21|| pocketNum ==23|| pocketNum ==25
+				|| pocketNum ==27 || pocketNum ==30|| pocketNum == 32|| pocketNum == 34|| pocketNum == 36){
+			color = "red";
+			
+		}
+		else if(pocketNum == 2 ||pocketNum == 4||pocketNum ==6||pocketNum ==8||pocketNum ==10 ||pocketNum ==11
+				||pocketNum == 13 ||pocketNum ==15 ||pocketNum ==17 ||pocketNum == 20 ||pocketNum ==22 ||pocketNum ==24
+						||pocketNum ==26 ||pocketNum ==28 ||pocketNum == 29 ||pocketNum == 31 ||pocketNum ==33 ||pocketNum ==35)
+		{
+			color = "black";
+		}
+		else if(pocketNum == 0){
+			color = "green";
+		}
+		else
+			color = "Error number entered is not vaild";		
+		
+		return color;
+	}
+	public static void main(String[] args){
+		
+		int userNum;
+		Scanner keyboard = new Scanner(System.in);
+		
+       	
+        	System.out.println("Please enter a number beteen 0-36 ");
+        	userNum = keyboard.nextInt();
+        	
+        	Pro18RouletteWheel game = new Pro18RouletteWheel(userNum); 
+        	
+        	System.out.println(game.getPocketColor());
+        	
+        }
+}
