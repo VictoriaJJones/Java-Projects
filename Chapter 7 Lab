@@ -1,0 +1,152 @@
+//Programming challenge 5
+import java.util.Scanner;
+import java.io.*;
+import java.util.ArrayList;
+
+public class Pro5ChargeModifiy {
+	
+public static void main(String[ ] args)throws IOException {
+		
+		int usernum;
+		int result;
+		int[] chargeNums = new int[] {5658845, 4520125, 7895122, 8777541, 8451277, 1302850, 
+							8080152, 4562555, 5552012, 5050552, 7825877, 1250255,
+							1005231, 6545231, 3852085, 7576651, 7881200, 4581002};
+		//listOfAccounts.txt
+		Scanner keyboard = new Scanner(System.in);
+		
+		System.out.println("Please enter a charge account number ");		
+		usernum = keyboard.nextInt();		
+		
+		ArrayTools.selectionSort(chargeNums);
+		result = ArrayTools.binarySearch(chargeNums, usernum);
+		
+		
+		 if(result == -1){
+			 
+			 
+			 System.out.println(usernum + " was not found ");
+			 System.out.println("Type listOfAccounts.txt to see full list");
+			 System.out.println();
+			 Code();
+		   }
+		 else
+		 {
+			 System.out.println(usernum + " was found ");// + "at element " + result
+			
+			 
+
+			   }
+		
+		 //FileWriter fwriter = new FileWriter("listOfAccounts.txt",true);
+		 
+	}
+
+public static void Code() throws IOException
+{
+	ArrayList<String> accountList = new ArrayList<String>();
+	
+	Scanner keyboard = new Scanner(System.in);
+	
+	System.out.print("Enter the filename: ");
+	String filename = keyboard.nextLine();
+	
+	File file = new File(filename);
+	Scanner inputFile = new Scanner(file);
+	
+	while (inputFile.hasNext())
+	{
+		String account = inputFile.nextLine();
+		accountList.add(account);
+	}
+	inputFile.close();
+	
+	for (int index = 0; index < accountList.size(); index++)
+	{
+		
+		System.out.println("Index: " + index + " Account#:  " +
+							accountList.get(index));
+	}
+}
+
+}
+
+
+//Separate class
+/**
+ * This class has methods for performing the selection sort 
+ * and the binary search on integer arrays.
+ */
+
+public class ArrayTools
+{
+
+	/**
+	 * The selectionSort method performs a selection sort on an     
+     * integer array. The array is sorted in ascending order.
+	 */
+
+   public static void selectionSort(int[] array)
+   {
+      int startScan, index, minIndex, minValue;
+
+      for (startScan = 0; startScan < (array.length-1); startScan++)
+      {
+         minIndex = startScan;
+         minValue = array[startScan];
+         for(index = startScan + 1; index < array.length; index++)
+         {
+            if (array[index] < minValue)
+            {
+               minValue = array[index];
+               minIndex = index;
+            }
+         }
+         array[minIndex] = array[startScan];
+         array[startScan] = minValue;
+      }
+   }
+
+
+	/**
+	 * The binarySearch method performs a binary search on an       
+     * integer array. The array is searched for the number passed   
+     * to value. If the number is found, its array subscript is     
+     * returned. Otherwise, -1 is returned indicating the value was 
+     * not found in the array.
+	 */
+
+   public static int binarySearch(int[] array, int value)
+   {
+      int first,       // First array element
+          last,        // Last array element
+          middle,      // Mid point of search
+          position;    // Position of search value
+      boolean found;   // Flag
+
+      // Set the inital values.
+      first = 0;
+      last = array.length - 1;
+      position = -1;
+      found = false;
+
+      // Search for the value.
+      while (!found && first <= last)
+      {
+         middle = (first + last) / 2;    // Calculate mid point
+         if (array[middle] == value)     // If value is found at mid
+         {
+            found = true;
+            position = middle;
+         }
+         else if (array[middle] > value) // If value is in lower half
+            last = middle - 1;
+         else
+            first = middle + 1;          // If value is in upper half
+      }
+
+      // Return the position of the item, or -1
+      // if it was not found.
+      return position;
+   }
+}
