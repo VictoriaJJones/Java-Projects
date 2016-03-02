@@ -1,0 +1,76 @@
+//Programming Challenge 4
+public class Pro4Temp {
+	
+	private double ftemp;
+	
+	//Construtor 
+	public Pro4Temp(double fahTemp)
+	{
+		ftemp = fahTemp;
+		
+	}
+	
+	//no agr constructor
+	/*public Pro4Temp()
+	{
+		
+	}*/
+	
+	//
+	public void setFahrenheit(double fahr)
+	{
+		ftemp = fahr;
+		
+	}
+	
+	public double getFahrenheit()
+	{
+		return ftemp;
+	}
+	
+	public double getCelsius()
+	{
+		double celsius;
+		celsius = (5.0/9.0) * (ftemp - 32);		
+		return celsius;
+		
+	}
+	public double getKelvin()
+	{
+		double kelvin; // Have to make 5/9  5.0/9.0 if you don't it will be ineger division
+		kelvin = ((5.0/9.0) * (ftemp - 32)) + 273;		
+		return kelvin;
+	}
+
+}
+
+
+
+//Diver
+//Programming Challenge 4
+import java.util.Scanner;
+public class Pro4TempDemo {
+
+	public static void main(String[] args){
+		
+		//scanner object 
+		Scanner keyboard = new Scanner(System.in);
+		double userInput;
+		
+		
+		System.out.println("Please enter a Fahrenheit temperature ");
+		userInput = keyboard.nextDouble();
+		
+		//keyboard.nextLine();
+		
+		Pro4Temp tmep1 = new Pro4Temp(userInput);
+		
+		System.out.println("The temperature is " + tmep1.getCelsius() + " Celsius");
+		
+		System.out.println("The temperature is " + tmep1.getKelvin() + " Kelvin");
+		
+		
+	}
+}
+
+
