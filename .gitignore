@@ -1,0 +1,43 @@
+//Programing Challenge 17
+import java.util.Scanner;
+public class Prog17WordGame
+{
+	public static void main(String[] args)
+	{
+		Scanner keyboard = new Scanner(System.in);
+		String userName;
+		int userAge;
+		String userCity;
+		String userCollege;
+		String profession;
+		String typeOfAnimal;
+		String petsName;
+		
+		System.out.println("Please enter your name ");
+		userName = keyboard.nextLine();
+		System.out.println("Please enter your age ");
+		userAge = keyboard.nextInt();
+		
+		//to resume to next line of program
+		keyboard.nextLine();
+		
+		System.out.println("Please enter a city ");
+		userCity = keyboard.nextLine();
+		System.out.println("Please enter a college ");
+		userCollege = keyboard.nextLine();
+		System.out.println("Please enter a profession ");
+		profession = keyboard.nextLine();
+		System.out.println("Please enter a type of animal ");
+		typeOfAnimal = keyboard.nextLine();
+		System.out.println("Please enter a pet name ");
+		petsName = keyboard.nextLine();
+		// \n %f is for doubles %d is for ints %s is for strings
+		System.out.printf("There once was a person named %s who lived in %s.  At the age of %d, \n%s went to college at %s. " +
+		"%s graduated and went to work as a \n%s. Then, %s adopted an %s named %s. They both lived happily ever after!",
+		userName,userCity, userAge,userName, userCollege, userName, profession, userName, typeOfAnimal, petsName);
+		//System.out.print();
+		
+		
+	}
+	
+}
