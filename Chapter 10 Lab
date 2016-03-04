@@ -1,0 +1,67 @@
+import java.io.*;
+
+//Programming Challenge 6
+public class Pro6FileArray {
+	private String name;
+	 private int[] numbers; 
+	
+	public static void writeArray(String fileName, int[]num)throws IOException
+	{//String name, int[] numbers
+		int[] numbers1 = {2,4,8,10,12,14,16,18,20};
+		num = numbers1;
+		FileOutputStream name1 = new FileOutputStream("Numbers.dat");
+		DataOutputStream outputFile = new DataOutputStream(name1);
+		
+		System.out.println("Writing to the file...");
+		for(int i = 0 ; i < numbers1.length; i++)
+		{
+			outputFile.writeInt(numbers1[i]);
+		}
+		outputFile.close();
+		System.out.println("Done.");
+		
+	}
+	
+	
+	public static void readArray( )throws IOException
+	{
+		//String name, int[] numbers
+		//int[] numbers1 = {2,4};
+		int number;
+		boolean endOfFile = false;
+		
+		FileInputStream fStream = new FileInputStream("Numbers.dat");
+		DataInputStream inputFile = new DataInputStream(fStream);
+		System.out.println("Reading numbers from the file:");
+		
+		while (!endOfFile)
+		{
+			try
+			{
+				number = inputFile.readInt();
+				System.out.println(number + " ");
+		
+			}
+			catch(EOFException e)
+			{
+			endOfFile = true;
+			}
+		}
+		inputFile.close();
+		System.out.println("\nDone.");
+		
+		
+	}
+	public static void main(String[] args)throws IOException
+	   {
+		
+		String fileName = null;
+		int[] numbers1 = {2,4,8,10,12,14,16,18,20};
+		
+		writeArray(fileName,numbers1);
+		System.out.println(" ");
+		 readArray();
+		
+	   }
+	
+}
