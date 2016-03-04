@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Pro8TheGreatest {
+	public static void main(String[] args) {
+		
+		Scanner keyboard = new Scanner(System.in);
+		
+		int userNum;
+		int largest ;//= 0
+		int smallest ;//=999999999
+		int counter = 1;
+		int x = 0;
+		final int sentnalVal = -99;
+		System.out.println("Please enter a series of numbers. / To exit type -99 ");
+		userNum = keyboard.nextInt();
+		
+		 smallest = userNum;
+	        largest = userNum;
+		while(userNum != sentnalVal ){
+			
+			if(userNum > largest)//If largest is small, set current number as largest
+			{
+			largest = userNum;		    
+		       
+		    }
+		else if (userNum < smallest)				
+			smallest = userNum;   
+						
+			
+		System.out.println("Please enter a series of numbers. / To exit type -99 ");
+		userNum = keyboard.nextInt();
+		 
+		
+		}
+		
+		//return largest;
+		System.out.println("the largest number is " + largest);
+		
+		System.out.println("the smallest number is " + smallest);// +" "+counter
+		//System.out.println(" GoodBye ");
+		
+		
+		
+		
+		
+		
+	}
+}
