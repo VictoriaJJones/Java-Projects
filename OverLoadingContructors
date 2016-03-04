@@ -1,0 +1,40 @@
+
+public class Pro2InventoryItem {
+	
+	private int inventory;
+	private String description;
+	
+	public Pro2InventoryItem(String description, int inventory)
+	{
+		this.inventory = inventory;
+		this.description = description;
+		
+	}
+	
+	
+	public Pro2InventoryItem(Pro2InventoryItem object)
+	{
+		this.inventory = object.inventory;
+		this.description = object.description;
+		
+	}
+	
+	//toString method
+	public String toString()
+	{
+		String str = "Description: " + description + "\t \tItem: " + inventory;
+		
+		return str;
+	}
+	
+	
+	public static void main(String[] args) {
+	
+		Pro2InventoryItem item1 = new Pro2InventoryItem("Shinny Box", 9);//
+		
+		Pro2InventoryItem item2 = new Pro2InventoryItem(item1);
+
+		
+		System.out.println(item2.toString());//
+	}
+}
