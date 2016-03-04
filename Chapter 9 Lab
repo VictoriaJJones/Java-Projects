@@ -1,0 +1,159 @@
+//Parent
+/**
+ * A class that holds a grade for a graded activity.
+ */
+
+public class GradedActivity
+{
+   private double score;  // Numeric score
+
+   /**
+    * The setScore method stores its argument in
+    * the score field.
+    */
+
+   public void setScore(double s)
+   {
+      score = s;
+   }
+
+   /**
+    * The getScore method returns the score field.
+    */
+
+   public double getScore()
+   {
+      return score;
+   }
+
+   /**
+    * The getGrade method returns a letter grade  
+    * determined from the score field.
+    */
+
+   public char getGrade()
+   {
+      char letterGrade;  // To hold the grade
+
+      if (score >= 90)
+         letterGrade = 'A';
+      else if (score >= 80)
+         letterGrade = 'B';
+      else if (score >= 70)
+         letterGrade = 'C';
+      else if (score >= 60)
+         letterGrade = 'D';
+      else
+         letterGrade = 'F';
+
+      return letterGrade;
+   }
+}
+
+
+//Child
+
+public class Pro4Essay extends GradedActivity{
+	private double gradeTotal;	
+	private double grammar;
+	private double spelling;
+	private double correctLength;
+	private double content;
+	
+	
+	public Pro4Essay() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Pro4Essay(double score,double gradeTotal, double grammar, double spelling, double correctLength, double content) {
+		super();
+		this.gradeTotal = gradeTotal;
+		this.grammar = grammar;
+		this.spelling = spelling;
+		this.correctLength = correctLength;
+		this.content = content;
+	}
+	
+	
+	public double getGradeTotal() {
+		
+		gradeTotal = (grammar + spelling + correctLength + content);
+		return gradeTotal;
+	}
+	public void setGradeTotal(double gradeTotal) {
+		super.setScore(gradeTotal);
+		gradeTotal =( grammar + spelling + correctLength + content);
+		this.gradeTotal = gradeTotal;
+	}
+	public double getGrammar() {
+		return grammar;
+	}
+	public void setGrammar(double grammar) {
+		this.grammar = grammar;
+	}
+	public double getSpelling() {
+		return spelling;
+	}
+	public void setSpelling(double spelling) {
+		this.spelling = spelling;
+	}
+	public double getCorrectLength() {
+		return correctLength;
+	}
+	public void setCorrectLength(double userScores) {
+		this.correctLength = userScores;
+	}
+	public double getContent() {
+		return content;
+	}
+	public void setContent(double content) {
+		this.content = content;
+	}
+	
+
+}
+
+
+//Diver
+//Programming challenge 4
+import java.util.Scanner;
+public class Pro4EssayDemo {
+	public static void main(String[] args)
+	   {
+		double Grammer; 
+		double Spelling;
+		double Length;
+		double Content;
+		
+		Scanner keyboard = new Scanner(System.in);
+     
+    
+     Pro4Essay grade = new Pro4Essay();
+
+   
+     System.out.print("Enter Grammer points: ");
+     Grammer = keyboard.nextDouble(); 
+     grade.setGrammar( Grammer);
+     
+     System.out.print("Enter Spelling points: ");
+     Spelling = keyboard.nextDouble(); 
+     grade.setSpelling(Spelling);
+     
+     System.out.print("Enter Correct Length points: ");
+     Length = keyboard.nextDouble(); 
+     grade.setCorrectLength(Length);
+     
+     System.out.print("Enter Content points: ");
+     Content = keyboard.nextDouble(); 
+     grade.setContent(Content);
+    
+     //grade.setScore(testScore);
+     double total = 0;
+     total = grade.getGradeTotal();
+     grade.setScore(total);
+    
+     System.out.println("The final grade for this essay is " + grade.getGrade());
+     System.out.println("Grade total  " + grade.getGradeTotal());
+
+	   }
+}
