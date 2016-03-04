@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Pro1SumOfNumbers {
+	public static void main(String[] args){
+		Scanner keyboard = new Scanner(System.in);
+		
+		int userNum;
+		int sum= 0;
+		System.out.println("Please enter a posivite nonzero interger value ");
+		userNum = keyboard.nextInt();	
+		
+	       while(userNum <= 0)
+	       {
+	    	   System.out.println("Please enter a posivite nonzero interger value ");
+	   		userNum = keyboard.nextInt();
+	       }
+
+	        for (int run=1; run <= userNum; run=run+1)
+	        {
+	            System.out.print( run + "\n" );
+	            sum = sum + run; 
+	        }
+
+	        System.out.println( "The sum is " + sum );
+
+		/*while(userNum > 0 ){//&& sum < userNum
+			
+			System.out.println();
+			
+
+		}	*/
+		
+		
+		
+		
+		
+		
+	}
+
+}
