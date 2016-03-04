@@ -1,0 +1,86 @@
+import java.util.Scanner;
+
+public class Pro5HotelOccupancy {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner keyboard = new Scanner(System.in);
+
+		 String userInput; //To hold the user's input
+		 
+		             final int MIN_FLOORS = 1;   //Minimum amount of floors
+		 
+		             final int MIN_ROOMS = 10;   //Minimum amount of rooms per floor
+		 
+		             int numFloors; //Number of floors in hotel
+		 
+		             int numRooms; //Number of available rooms in each floor
+		 
+		             int occupiedrooms;  //Number of rooms occupied
+		 
+		             int totalRooms;  //Number of total rooms
+		 
+		             double occrate;  //Occupancy rate
+		 
+		             int vacantRooms; //Number of vacant rooms		 
+		  
+		 
+		             System.out.println("How many floors are in the hotel? ");    //Get the number of floors in the hotel		 
+		              
+		 
+		              do //Validate the number entered.
+		 
+		                 {
+		 
+		                 System.out.println("The number of floors " + "must be at least " + MIN_FLOORS);
+		 
+		                 numFloors = keyboard.nextInt(); 
+		  
+		                 }		 
+		                  
+		 
+		             while (numFloors < MIN_FLOORS);		 
+		              
+		 
+		             System.out.println("How many rooms are on each floor?");    //Get the number of rooms in each floor		 
+		           
+		 
+		              do   //Validate the number entered.
+		 
+		                 {
+		 
+		                 System.out.println("The number " + "of rooms must be greater than " + MIN_ROOMS);
+		 
+		                 numRooms = keyboard.nextInt();	 
+		                 		 
+		                 }
+		 
+		             while(numRooms < MIN_ROOMS);    //Get the amount of rooms occupied.		 
+		              
+		 
+		             System.out.println("How many rooms are occupied?");
+		 
+		             occupiedrooms = keyboard.nextInt();		 
+		  
+		 
+		             totalRooms = (numFloors * numRooms);		 
+		  
+		
+		             occrate = ((double)occupiedrooms / totalRooms);		
+		  
+		 
+		             vacantRooms = (totalRooms - occupiedrooms);
+		 
+		             //Display the results
+		 
+		             System.out.println("There " + "are " + totalRooms + " total rooms in the hotel, the number of rooms occupied are " +
+		 
+		                     occupiedrooms + ", " + vacantRooms + " rooms are vacant, and the occupancy rate for the hotel is " + occrate + ".");
+		 
+		             //End the program.
+		 
+		             System.exit(0);
+
+	}
+
+}
