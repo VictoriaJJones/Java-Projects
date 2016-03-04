@@ -1,0 +1,124 @@
+import java.util.Scanner;
+
+public class Pro6Population {
+	
+	
+	private int startSizeNum;
+	private double avergIncre;//As percent
+	private int daysMultiplied;
+	private int totalSize;
+	
+	public void setStartSizeNum(int StartSizeNum)
+	{
+		startSizeNum = StartSizeNum;
+	}
+	
+	public void setAvergIncre(double AvergIncre)
+	{
+		avergIncre = AvergIncre;
+	}
+	
+	public void setDaysMultiplied(int DaysMultiplied)
+	{
+		daysMultiplied = DaysMultiplied;
+	}
+	public void setTotalSize(int TotalSize)
+	{
+		totalSize = TotalSize;
+	}
+	
+	public int geTotalSize()
+	{
+		//needs to loop to show population each day
+		
+		//totalSize = startSizeNum * daysMultiplied / avergIncre;
+		
+		//popSize = numOrg + (popInc*numOrg);
+		
+		for(int x=1; x <= daysMultiplied ; x++)
+		{
+			//popSize = popSize + (numOr * popInc)
+			//numberOfOrganisms = numberOfOrganisms + (numberOfOrganisms * dailyIncrease);
+			totalSize = (int) (startSizeNum + (startSizeNum * (double)avergIncre));
+			//totalSize= (startSizeNum + (avergIncre * startSizeNum))* x;
+		 System.out.println("Popluation increase for day "+x+" = " + totalSize);
+		}
+		return totalSize;
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		Scanner keyboard = new Scanner(System.in);
+		
+		int size;
+		double  increase;
+		int multipy;
+		
+		Pro6Population pop = new  Pro6Population();
+		
+		//The starting size of population
+		System.out.println("What is the size of your population? ");
+		size = keyboard.nextInt();
+		pop.setStartSizeNum(size);
+		
+		//The average of population increase
+		System.out.println("What is your populations average increase? ");
+		increase = keyboard.nextDouble();
+		pop.setAvergIncre(increase);
+		
+		// how to multiply
+		System.out.println("How many days will you multiply? ");
+		multipy = keyboard.nextInt();
+		pop.setDaysMultiplied(multipy);
+		
+		while(size < 2 )			
+			//do
+		{
+			System.out.println("Error the number must be 2 or more.");	
+			System.out.println("What is the size of your population? ");
+			size = keyboard.nextInt();
+			pop.setStartSizeNum(size);
+			
+			// System.out.println("The number must be 2 or more.");			 
+             
+		}
+		while(increase < 0 )			
+			//do
+		{
+			System.out.println("Error the number can not be a negative number");	
+			System.out.println("What is your populations average increase? ");
+			increase = keyboard.nextInt();
+			pop.setAvergIncre(increase);
+			
+			// System.out.println("The number must be 2 or more.");			 
+             
+		}
+		/*while(increase < 1 )			
+			//do
+		{
+			System.out.println("Error the number can not be less than 1");	
+			System.out.println("How many days will you multiply? ");
+			multipy = keyboard.nextInt();
+			pop.setDaysMultiplied(multipy);
+			
+			// System.out.println("The number must be 2 or more.");			 
+             
+		}	*/	
+		//pop.geTotalSize()
+		System.out.println("Your total population " + pop.geTotalSize());
+		
+		/* for(int date=1; date <= days; date++)
+	        {
+	            popSize = numOrg * (popInc/100) + numOrg;
+
+	            System.out.println("Population increase for day " + date + " is " + popSize);
+	            numOrg = popSize;
+
+	        }*/
+	}
+	
+	
+	
+	
+}
