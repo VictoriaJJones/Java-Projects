@@ -1,0 +1,161 @@
+//
+package application;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class NameFormatter extends Application 
+{ 
+	   public void start(Stage stage) throws Exception
+	   {  
+	      // Load the FXML file.
+	      Parent parent = FXMLLoader.load(
+	               getClass().getResource("NameFormatter.fxml")); //KilometerConverter.fxml
+	      
+	      // Build the scene graph.
+	      Scene scene = new Scene(parent); 
+	      
+	      // Display our window, using the scene graph.
+	      stage.setTitle("Name Formatter"); 
+	      stage.setScene(scene);
+	      stage.show(); 
+	   }
+	   
+	   public static void main(String[] args)
+	   {
+	      // Launch the application.
+	      launch(args);
+	   }
+	 } 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 //Controller
+	 package application;
+
+import javafx.application.Application;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+public class NameFormatterController {
+	
+	@FXML 
+    private Button convertButton;
+	@FXML 
+    private Button convertButton2;
+	@FXML 
+    private Button convertButton3;
+	@FXML 
+    private Button convertButton4;
+	@FXML 
+    private Button convertButton5;
+	@FXML 
+    private Button convertButton6;
+	 @FXML 
+	 private TextField firstNameField;	    
+	 @FXML 
+	 private TextField middleNameField;
+	 @FXML 
+	 private TextField lastNameField;
+	 @FXML 
+	 private TextField titleField;
+	 @FXML 
+	 private Label outputLabel;
+	 @FXML 
+	 private Label promptLabel1;
+	 @FXML 
+	 private Label promptLabel2;
+	 @FXML 
+	 private Label promptLabel3;
+	 @FXML 
+	 private Label promptLabel4;
+	 public void initialize() 
+	    {
+	        // Perform any necessary initialization here.
+	    }
+	    
+	    // Event listener for the convertButton
+	    public void convertButtonListener() 
+	    { 
+	    	 String str = titleField.getText();
+	    	 String str2 = firstNameField.getText();
+	    	 String str3 = middleNameField.getText();
+	    	 String str4 = lastNameField.getText();
+	    	 
+	    	 outputLabel.setText(str + " " + str2 + " " + str3 + " " + str4);     
+	    
+	    }
+	    public void convertButtonListener2() 
+	    { 
+	    	 String str = titleField.getText();
+	    	 String str2 = firstNameField.getText();
+	    	 String str3 = middleNameField.getText();
+	    	 String str4 = lastNameField.getText();
+	    	 
+	    	 //first mid last
+	    	 outputLabel.setText(str2 + " " + str3 + " " + str4);     
+	    
+	    }
+	    public void convertButtonListener3() 
+	    { 
+	    	 String str = titleField.getText();
+	    	 String str2 = firstNameField.getText();
+	    	 String str3 = middleNameField.getText();
+	    	 String str4 = lastNameField.getText();
+	    	 
+	    	 //first last
+	    	 outputLabel.setText(str2 + " " + str4);     
+	    
+	    }
+	    public void convertButtonListener4() 
+	    { 
+	    	 String str = titleField.getText();
+	    	 String str2 = firstNameField.getText();
+	    	 String str3 = middleNameField.getText();
+	    	 String str4 = lastNameField.getText();
+	    	 
+	    	 //reverse
+	    	 outputLabel.setText(str4 + ", " + str2 + " " + str3 + ", "  +str );     
+	    
+	    }
+	    public void convertButtonListener5() 
+	    { 
+	    	 String str = titleField.getText();
+	    	 String str2 = firstNameField.getText();
+	    	 String str3 = middleNameField.getText();
+	    	 String str4 = lastNameField.getText();
+	    	 
+	    	 //
+	    	 outputLabel.setText( str4 + ", "  + str2 + " " + str3  );     
+	    
+	    }
+	    public void convertButtonListener6() 
+	    { 
+	    	 String str = titleField.getText();
+	    	 String str2 = firstNameField.getText();
+	    	 String str3 = middleNameField.getText();
+	    	 String str4 = lastNameField.getText();
+	    	 
+	    	 outputLabel.setText(str4 + ", " + str2 );     
+	    
+	    }
+	    
+	
+
+}
+
+	 
